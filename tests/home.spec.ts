@@ -30,5 +30,17 @@ test.describe('Home', () => {
         await expect(page).toHaveURL(/.*#get-started/);
         
     })
+
+    test('Verify heading text is visible using text selector', async ({ page }) => {
+        // open url
+        await page.goto('https://practice.sdetunicorns.com');
+
+        // find the text locator  
+        const headingText = await page.locator('text= Think different. Make different.');
+
+        // verify heading text is visible
+        await expect(headingText).toBeVisible();
+        
+    })
     
 })
