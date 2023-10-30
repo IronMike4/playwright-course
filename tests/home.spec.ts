@@ -55,4 +55,16 @@ test.describe('Home', () => {
         await expect(homeText).toBeEnabled();
         
     })
+
+    test('Verify search icon is visible using xpath selector', async ({ page }) => {
+        // open url
+        await page.goto('https://practice.sdetunicorns.com');
+
+        // find the search icon
+        const searchIcon = await page.locator("(//*[name()='svg'][@class='zak-icon zakra-icon--magnifying-glass'])[1]");
+
+        // verify search icon is visible
+        await expect(searchIcon).toBeVisible();
+        
+    })
 })
