@@ -11,6 +11,9 @@ test.describe('Contact', () => {
         await page.locator('.contact-phone input').fill('123456789')
         await page.locator('.contact-message textarea').fill('This is a test message')
 
+        // add a soft assertion
+        await expect.soft(page.locator('.contact-message textarea')).toHaveText("Fail test message")
+
         // click submit
         await page.locator('button[type=submit]').click()
 
